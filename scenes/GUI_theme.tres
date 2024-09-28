@@ -1,13 +1,31 @@
-[gd_resource type="Theme" load_steps=2 format=3 uid="uid://u2npdehl138b"]
+[gd_resource type="Theme" load_steps=6 format=3 uid="uid://u2npdehl138b"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kx6rf"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_okmx4"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vgxh6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rdp17"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e1xfu"]
-bg_color = Color(0.11521, 0.0710108, 0.115229, 1)
+bg_color = Color(0.185099, 0.123057, 0.185117, 1)
+border_width_left = 3
+border_width_right = 3
 corner_radius_top_left = 8
 corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 
 [resource]
+Button/colors/font_color = Color(0.875, 0.875, 0.875, 1)
+Button/colors/font_hover_color = Color(0, 0, 0, 1)
+Button/colors/font_hover_pressed_color = Color(0.344076, 0.344076, 0.344076, 1)
+Button/colors/font_pressed_color = Color(0.55, 0.363, 0.55, 1)
+Button/styles/focus = SubResource("StyleBoxEmpty_kx6rf")
+Button/styles/hover = SubResource("StyleBoxEmpty_okmx4")
+Button/styles/normal = SubResource("StyleBoxEmpty_vgxh6")
+Button/styles/pressed = SubResource("StyleBoxEmpty_rdp17")
 HBoxContainer/constants/separation = 79
 MarginContainer/constants/margin_bottom = 12
 MarginContainer/constants/margin_left = 12

@@ -1,5 +1,7 @@
 extends VBoxContainer
 
+signal game_ended
+
 var winner : int = -1
 var closed_games := []
 var game_winners := []
@@ -64,6 +66,7 @@ func declare_winner(_winner):
 		game.replace_spot_labels(winner)
 	print("player", winner, " won the whole thing, guys!")
 	Global.is_game_over = true
+	game_ended.emit()
 	sfx.play()
 
 func break_tie():

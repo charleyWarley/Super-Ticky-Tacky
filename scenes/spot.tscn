@@ -13,7 +13,7 @@ script = ExtResource("2_o3udh")
 
 [node name="sfx" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_k4svv")
-volume_db = 2.811
+volume_db = 14.055
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

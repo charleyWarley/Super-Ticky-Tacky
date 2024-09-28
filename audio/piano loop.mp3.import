@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dmh7bingj1ypj"
+path="res://.godot/imported/piano loop.mp3-662f49e93d5f59a1e20f48cd86ded87c.mp3str"
+
+[deps]
+
+source_file="res://audio/piano loop.mp3"
+dest_files=["res://.godot/imported/piano loop.mp3-662f49e93d5f59a1e20f48cd86ded87c.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

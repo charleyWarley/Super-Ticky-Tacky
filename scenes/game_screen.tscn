@@ -1,0 +1,146 @@
+[gd_scene load_steps=12 format=3 uid="uid://csr0n2j45foi0"]
+
+[ext_resource type="Theme" uid="uid://u2npdehl138b" path="res://scenes/GUI_theme.tres" id="1_3j5gl"]
+[ext_resource type="Script" path="res://scripts/game_screen.gd" id="1_limdb"]
+[ext_resource type="Theme" uid="uid://ylxreo2wvgdq" path="res://themes/main_theme.tres" id="2_ob6ew"]
+[ext_resource type="Script" path="res://scripts/current_player_label.gd" id="3_ie76o"]
+[ext_resource type="Script" path="res://scripts/game_board.gd" id="3_x4d7h"]
+[ext_resource type="PackedScene" uid="uid://4f64ju1iy0bs" path="res://scenes/board_row.tscn" id="4_mx524"]
+[ext_resource type="Script" path="res://scripts/time_label.gd" id="4_wxq4p"]
+[ext_resource type="Script" path="res://scripts/reset_button.gd" id="5_5fd2o"]
+[ext_resource type="Script" path="res://scripts/mute_button.gd" id="5_mubvj"]
+[ext_resource type="AudioStream" uid="uid://8urknr63xtiv" path="res://audio/Triumph Song.mp3" id="5_svt6c"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_towob"]
+bg_color = Color(0.0784314, 0, 0.0784314, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[node name="game_screen" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_limdb")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -49.0
+offset_top = -17.0
+offset_right = 597.0
+offset_bottom = 581.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_3j5gl")
+color = Color(0, 0, 0, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="background"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="back_panel" type="Panel" parent="background/MarginContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_towob")
+
+[node name="top_panel" type="Panel" parent="background"]
+offset_left = 133.0
+offset_top = 34.0
+offset_right = 566.0
+offset_bottom = 115.0
+theme = ExtResource("1_3j5gl")
+
+[node name="current_player_label" type="Label" parent="background/top_panel"]
+layout_mode = 2
+offset_left = 40.0
+offset_top = 5.0
+offset_right = 198.0
+offset_bottom = 49.0
+theme_override_font_sizes/font_size = 31
+text = "player one"
+script = ExtResource("3_ie76o")
+
+[node name="time_label" type="Label" parent="background/top_panel"]
+layout_mode = 2
+offset_left = 103.0
+offset_top = 50.0
+offset_right = 131.0
+offset_bottom = 73.0
+text = "300"
+script = ExtResource("4_wxq4p")
+
+[node name="mute_button" type="Button" parent="background/top_panel"]
+layout_mode = 0
+offset_left = 235.0
+offset_top = 22.0
+offset_right = 289.0
+offset_bottom = 53.0
+toggle_mode = true
+text = "music"
+script = ExtResource("5_mubvj")
+
+[node name="exit_button" type="Button" parent="background/top_panel"]
+layout_mode = 0
+offset_left = 337.0
+offset_top = 22.0
+offset_right = 391.0
+offset_bottom = 53.0
+text = "exit"
+script = ExtResource("5_5fd2o")
+
+[node name="game_board" type="VBoxContainer" parent="."]
+process_mode = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 45.0
+offset_top = 93.0
+offset_right = 517.0
+offset_bottom = 563.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_ob6ew")
+theme_override_constants/separation = 7
+script = ExtResource("3_x4d7h")
+
+[node name="top_board_row" parent="game_board" instance=ExtResource("4_mx524")]
+layout_mode = 2
+
+[node name="middle_board_row" parent="game_board" instance=ExtResource("4_mx524")]
+layout_mode = 2
+
+[node name="bottom_board_row" parent="game_board" instance=ExtResource("4_mx524")]
+layout_mode = 2
+
+[node name="sfx" type="AudioStreamPlayer" parent="game_board"]
+stream = ExtResource("5_svt6c")
+volume_db = -3.748
+
+[connection signal="pressed" from="background/top_panel/mute_button" to="background/top_panel/mute_button" method="_on_pressed"]
+[connection signal="pressed" from="background/top_panel/exit_button" to="background/top_panel/exit_button" method="_on_pressed"]
+[connection signal="game_ended" from="game_board" to="." method="_on_game_ended"]
+[connection signal="game_closed" from="game_board/top_board_row" to="game_board" method="_on_game_closed"]
+[connection signal="game_ready" from="game_board/top_board_row" to="game_board" method="_on_game_ready"]
+[connection signal="game_rejected" from="game_board/top_board_row" to="game_board" method="_on_game_rejected"]
+[connection signal="turn_taken" from="game_board/top_board_row" to="game_board" method="_on_turn_taken"]
+[connection signal="game_closed" from="game_board/middle_board_row" to="game_board" method="_on_game_closed"]
+[connection signal="game_ready" from="game_board/middle_board_row" to="game_board" method="_on_game_ready"]
+[connection signal="game_rejected" from="game_board/middle_board_row" to="game_board" method="_on_game_rejected"]
+[connection signal="turn_taken" from="game_board/middle_board_row" to="game_board" method="_on_turn_taken"]
+[connection signal="game_closed" from="game_board/bottom_board_row" to="game_board" method="_on_game_closed"]
+[connection signal="game_ready" from="game_board/bottom_board_row" to="game_board" method="_on_game_ready"]
+[connection signal="game_rejected" from="game_board/bottom_board_row" to="game_board" method="_on_game_rejected"]
+[connection signal="turn_taken" from="game_board/bottom_board_row" to="game_board" method="_on_turn_taken"]

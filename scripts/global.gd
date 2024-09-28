@@ -17,6 +17,7 @@ var current_player : int = 1
 var player_count : int = 1
 var is_game_over := false
 var has_auto_picker := false
+var bgm : AudioStreamPlayer
 
 func change_player() -> void:
 	if current_player == -1: current_player = 1

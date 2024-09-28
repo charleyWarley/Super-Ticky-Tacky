@@ -1,0 +1,81 @@
+[gd_scene load_steps=3 format=3 uid="uid://blgfs6cv8y158"]
+
+[ext_resource type="Theme" uid="uid://b5k3u4ap38lsk" path="res://themes/pause_theme.tres" id="1_68chr"]
+[ext_resource type="Script" path="res://scripts/main_menu.gd" id="2_o5abj"]
+
+[node name="main_menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_68chr")
+script = ExtResource("2_o5abj")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.356804, 0.153669, 0.255578, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="ColorRect" type="ColorRect" parent="ColorRect/MarginContainer"]
+layout_mode = 2
+color = Color(0.145098, 0.145098, 0.145098, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/MarginContainer/ColorRect"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -183.0
+offset_bottom = -95.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="single_button" type="Button" parent="ColorRect/MarginContainer/ColorRect/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "single player"
+
+[node name="multi_button" type="Button" parent="ColorRect/MarginContainer/ColorRect/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "local multiplayer"
+
+[node name="Label" type="Label" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -264.0
+offset_top = -120.0
+offset_right = 264.0
+offset_bottom = -37.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 60
+text = "Super Ticky Tacky!"
+
+[connection signal="pressed" from="ColorRect/MarginContainer/ColorRect/VBoxContainer/single_button" to="." method="_on_single_button_pressed"]
+[connection signal="pressed" from="ColorRect/MarginContainer/ColorRect/VBoxContainer/multi_button" to="." method="_on_multi_button_pressed"]
