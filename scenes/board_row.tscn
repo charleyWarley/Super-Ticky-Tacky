@@ -1,0 +1,33 @@
+[gd_scene load_steps=3 format=3 uid="uid://4f64ju1iy0bs"]
+
+[ext_resource type="Script" path="res://scripts/board_row.gd" id="1_3trpo"]
+[ext_resource type="PackedScene" uid="uid://bl4ock04bs5ru" path="res://scenes/game.tscn" id="2_2a3lu"]
+
+[node name="board_row" type="HBoxContainer"]
+offset_right = 572.0
+offset_bottom = 188.0
+size_flags_vertical = 0
+theme_override_constants/separation = 8
+script = ExtResource("1_3trpo")
+
+[node name="game1" parent="." instance=ExtResource("2_2a3lu")]
+layout_mode = 2
+
+[node name="game2" parent="." instance=ExtResource("2_2a3lu")]
+layout_mode = 2
+
+[node name="game3" parent="." instance=ExtResource("2_2a3lu")]
+layout_mode = 2
+
+[connection signal="game_closed" from="game1" to="." method="_on_game_closed"]
+[connection signal="game_ready" from="game1" to="." method="_on_game_ready"]
+[connection signal="game_rejected" from="game1" to="." method="_on_game_rejected"]
+[connection signal="turn_taken" from="game1" to="." method="_on_turn_taken"]
+[connection signal="game_closed" from="game2" to="." method="_on_game_closed"]
+[connection signal="game_ready" from="game2" to="." method="_on_game_ready"]
+[connection signal="game_rejected" from="game2" to="." method="_on_game_rejected"]
+[connection signal="turn_taken" from="game2" to="." method="_on_turn_taken"]
+[connection signal="game_closed" from="game3" to="." method="_on_game_closed"]
+[connection signal="game_ready" from="game3" to="." method="_on_game_ready"]
+[connection signal="game_rejected" from="game3" to="." method="_on_game_rejected"]
+[connection signal="turn_taken" from="game3" to="." method="_on_turn_taken"]

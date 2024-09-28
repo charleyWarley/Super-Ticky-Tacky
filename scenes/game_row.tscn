@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://dn28fgryxxu3x"]
+
+[ext_resource type="PackedScene" uid="uid://cnr5a28dgksfl" path="res://scenes/spot.tscn" id="1_d8dle"]
+[ext_resource type="Script" path="res://scripts/game_row.gd" id="1_tfpom"]
+
+[node name="game_row" type="HBoxContainer"]
+script = ExtResource("1_tfpom")
+
+[node name="spot1" parent="." instance=ExtResource("1_d8dle")]
+layout_mode = 2
+
+[node name="spot2" parent="." instance=ExtResource("1_d8dle")]
+layout_mode = 2
+
+[node name="spot3" parent="." instance=ExtResource("1_d8dle")]
+layout_mode = 2
+
+[connection signal="turn_taken" from="." to="spot1" method="_on_game_row_turn_taken"]
+[connection signal="spot_name_set" from="spot1" to="." method="_on_spot_name_set"]
+[connection signal="turn_taken" from="spot1" to="." method="_on_turn_taken"]
+[connection signal="spot_name_set" from="spot2" to="." method="_on_spot_name_set"]
+[connection signal="turn_taken" from="spot2" to="." method="_on_turn_taken"]
+[connection signal="spot_name_set" from="spot3" to="." method="_on_spot_name_set"]
+[connection signal="turn_taken" from="spot3" to="." method="_on_turn_taken"]

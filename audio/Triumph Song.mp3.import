@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://8urknr63xtiv"
+path="res://.godot/imported/Triumph Song.mp3-e6f55f1bf2fb4c084b31bfabb19c067f.mp3str"
+
+[deps]
+
+source_file="res://audio/Triumph Song.mp3"
+dest_files=["res://.godot/imported/Triumph Song.mp3-e6f55f1bf2fb4c084b31bfabb19c067f.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
