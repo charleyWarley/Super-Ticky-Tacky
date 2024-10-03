@@ -22,13 +22,13 @@ layout_mode = 1
 
 [node name="sfx" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_3vl5f")
+volume_db = -5.72
+autoplay = true
 script = ExtResource("4_jly0q")
 
 [node name="bgm" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("10_jlrus")
-volume_db = -80.0
 script = ExtResource("11_aaq31")
 
 [connection signal="game_started" from="main_menu" to="." method="_on_game_started"]
-[connection signal="game_started" from="main_menu" to="sfx" method="_on_game_started"]
 [connection signal="game_started" from="main_menu" to="bgm" method="_on_game_started"]

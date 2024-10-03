@@ -1,6 +1,6 @@
 [gd_scene load_steps=12 format=3 uid="uid://csr0n2j45foi0"]
 
-[ext_resource type="Theme" uid="uid://u2npdehl138b" path="res://scenes/GUI_theme.tres" id="1_3j5gl"]
+[ext_resource type="Theme" uid="uid://u2npdehl138b" path="res://themes/GUI_theme.tres" id="1_3j5gl"]
 [ext_resource type="Script" path="res://scripts/game_screen.gd" id="1_limdb"]
 [ext_resource type="Theme" uid="uid://ylxreo2wvgdq" path="res://themes/main_theme.tres" id="2_ob6ew"]
 [ext_resource type="Script" path="res://scripts/current_player_label.gd" id="3_ie76o"]
@@ -54,6 +54,7 @@ layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_towob")
 
 [node name="top_panel" type="Panel" parent="background"]
+layout_mode = 0
 offset_left = 133.0
 offset_top = 34.0
 offset_right = 566.0
